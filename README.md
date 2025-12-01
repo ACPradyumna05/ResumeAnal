@@ -1,220 +1,152 @@
-📝 README.md — MatchMyResume (Full-Stack AI Resume Analyzer)
-<p align="center"> <img src="https://img.shields.io/badge/Framework-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" /> <img src="https://img.shields.io/badge/Frontend-React-61DBFB?style=for-the-badge&logo=react&logoColor=black" /> <img src="https://img.shields.io/badge/ML-Vector%20Similarity%20%7C%20XGBoost-orange?style=for-the-badge" /> <img src="https://img.shields.io/badge/Auth-JWT-green?style=for-the-badge" /> </p> <p align="center"> <strong>AI-powered Resume ↔ Job Description Matching System with Employer Ranking & Candidate Transparency</strong> </p> <p align="center"> <img width="650" src="https://dummyimage.com/900x400/0f172a/ffffff&text=Project+Screenshot+Placeholder" /> <br/> <em>(Add screenshots from your app here!)</em> </p>
-🚀 MatchMyResume – Overview
+<h1 align="center">🚀 MatchMyResume (MMR)</h1>
+<p align="center">
+  <b>AI-powered Resume ↔ Job Description Matching System</b><br/>
+  Built with <b>FastAPI</b>, <b>React + Vite</b>, <b>TailwindCSS</b>, and ML-based scoring models.
+</p>
 
-MatchMyResume is a full-stack AI screening tool that:
+<p align="center">
+  <img src="https://img.shields.io/badge/Frontend-React%2FVite-61dafb?style=for-the-badge&logo=react&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white"/>
+  <img src="https://img.shields.io/badge/ML-XGBoost-orange?style=for-the-badge&logo=xgboost"/>
+  <img src="https://img.shields.io/badge/Auth-JWT-green?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Email-Resend-red?style=for-the-badge"/>
+</p>
 
-👤 For Candidates
 
-✔ Upload resume
-✔ Paste job description
-✔ Get match score
-✔ See detailed explanation (skills match, missing keywords, cosine similarity)
+## 🌟 Overview
 
-🧑‍💼 For Employers
+MatchMyResume is a modern, full-stack resume analysis and ranking system designed for:
 
-✔ Upload up to 50 resumes
-✔ Rank candidates using a trained ML model
-✔ Accept / Reject candidates manually
-✔ Auto-filter candidates using a score threshold
-✔ Save decisions locally (persistent across reloads)
+- **Candidates** → upload resume + JD → get score, insights, and improvement tips  
+- **Employers** → upload up to 50 resumes → batch screening → automatic ranking  
+- **ML Scoring** → cosine similarity, keyword match stats, and XGBoost ensemble  
+- **Auth System** → secure JWT login/signup, with email verification (Resend)
 
-🔐 Authentication Included
 
-✔ Email signup
-✔ JWT login
-✔ Resend email verification
-✔ Protected employer dashboard
+## ✨ Key Features
 
-🏗 Tech Stack
-Backend – FastAPI
+### 🧑‍💼 Candidate Portal
+- Upload PDF/DOCX resume  
+- Paste job description  
+- ML-powered similarity score  
+- Transparent stats (keyword overlap, similarity, etc.)  
+- Clean analytics UI  
 
-ML scoring (XGBoost model + text preprocessing)
+### 🏢 Employer Portal
+- Upload 1–50 resumes  
+- Batch scoring + ranking  
+- Accept/Reject tagging  
+- Auto-reject threshold  
+- Local persistence via `localStorage`
 
-Resume processing (DOCX/PDF → text)
+### 🔐 Authentication
+- Full JWT-based login/signup  
+- Email verification via **Resend**  
+- Protected routes  
+- Dynamic navbar (Login → Profile)
 
-Candidate ranking
+### 🧠 Machine Learning
+- Preprocessing pipeline (TF-IDF, embeddings)  
+- Cosine similarity, keyword extraction  
+- XGBoost model output  
+- Combined score → ranked output
 
-JWT auth using passlib + python-jose
 
-Email verification with Resend
+## 🏗️ Tech Stack
 
-Frontend – React + Vite + Tailwind
+### **Frontend**
+- React (Vite)
+- Tailwind CSS
+- Custom components (ScoreBadge, FileUpload, LoadingOverlay)
+- React Router
+- LocalStorage-based JWT session
 
-Beautiful modern UI
+### **Backend**
+- FastAPI (Python)
+- SQLAlchemy + SQLite (local)
+- Pydantic v2
+- JWT auth (python-jose)
+- Resend email API
+- XGBoost resume scoring model
 
-Tab-based Candidate & Employer modes
 
-File uploading, score badges, animations
+## 📂 Project Structure
 
-Full auth flow (login, signup, email verify)
+/Backend
+│── app/
+│ ├── routers/
+│ ├── models.py
+│ ├── schemas.py
+│ ├── database.py
+│ ├── mailer.py
+│ ├── utils/
+│ └── main.py
+│── requirements.txt
+│── .env (ignored)
 
-📁 Project Structure
-ResAnal/
-│
-├── Backend/
-│   ├── app/
-│   │   ├── routers/
-│   │   │   ├── predict.py
-│   │   │   ├── rank.py
-│   │   │   └── auth.py
-│   │   ├── models.py
-│   │   ├── schemas.py
-│   │   ├── database.py
-│   │   ├── mailer.py
-│   │   ├── utils/
-│   │   └── main.py
-│   ├── requirements.txt
-│   └── auth.db (ignored)
-│
-└── Frontend/
-    ├── src/
-    │   ├── components/
-    │   ├── pages/
-    │   ├── common/
-    │   ├── lib/api.js
-    │   ├── AppRouter.jsx
-    │   ├── App.jsx
-    │   └── index.css
-    ├── package.json
-    └── vite.config.js
+/Frontend
+│── src/
+│ ├── components/
+│ ├── pages/
+│ ├── lib/api.js
+│ ├── AppRouter.jsx
+│ ├── App.jsx
+│ └── index.css
+│── public/
+│── package.json
+│── vite.config.js
+│── .env (ignored)
 
-🔐 Environment Variables
-Backend .env
-SECRET_KEY=your-secret
+
+
+## 🔧 Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/<yourname>/<your-repo>.git
+cd <your-repo>
+
+⚡ Backend Setup (FastAPI)
+2️⃣ Create virtual environment
+cd Backend
+python -m venv torchenv
+torchenv\Scripts\activate  # Windows
+
+3️⃣ Install dependencies
+pip install -r requirements.txt
+
+4️⃣ Create .env
+SECRET_KEY=your_secret
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=60
 
 DATABASE_URL=sqlite:///./auth.db
 
 RESEND_API_KEY=your_resend_key
-SMTP_USER=no-reply@yourdomain.com
-SMTP_NAME=Resume AI
+EMAIL_FROM=your_email@domain.com
 
 FRONTEND_URL=http://localhost:5173
 
-Frontend .env
-VITE_API_BASE=http://127.0.0.1:8000
-
-🧪 Run Locally
-Backend
-cd Backend
-pip install -r requirements.txt
+5️⃣ Start FastAPI server
 uvicorn app.main:app --reload
 
 
-Backend runs at:
+Backend runs at 👉 http://127.0.0.1:8000
 
-http://127.0.0.1:8000
-
-Frontend
+⚡ Frontend Setup (React + Vite)
+6️⃣ Install dependencies
 cd Frontend
 npm install
+
+7️⃣ Add Vite env
+
+Inside Frontend/.env:
+
+VITE_API_BASE=http://127.0.0.1:8000
+
+8️⃣ Start dev server
 npm run dev
 
 
-Frontend runs at:
-
-http://localhost:5173
-
-📬 Email Verification (Resend)
-
-You must verify your domain on
-🔗 https://resend.com/dashboard/domains
-
-Then use:
-
-RESEND_API_KEY=...
-SMTP_USER=no-reply@yourdomain.com
-
-
-Verification email example:
-
-“Click to verify your email:
-http://localhost:5173/verify-email?token=…”
-
-🧠 AI Scoring – How It Works
-Candidate Mode
-
-Text extracted → cleaned
-
-JD text vectorized
-
-Resume vectorized
-
-Cosine similarity
-
-Keyword overlap
-
-ML model predicts final composite score
-
-Employer Mode
-
-All resumes processed in a batch
-
-Ranked descending
-
-Actions available:
-
-Accept
-
-Reject
-
-Auto-reject by threshold
-
-📊 Feature Preview
-✔ Candidate View
-
-Upload resume
-
-Paste JD
-
-Get score
-
-Explanation accordion showing:
-
-Skill matches
-
-Missing skills
-
-Cosine similarity
-
-Keyword hits
-
-✔ Employer View
-
-Upload 1–50 resumes
-
-Ranked table
-
-Accept/Reject buttons
-
-Three-dot dropdown actions (optional)
-
-Score threshold filtering
-
-✨ Screenshots (Add later)
-![Landing Page]()
-![Login Page]()
-![Candidate Dashboard]()
-![Employer Dashboard]()
-![Score Details]()
-
-🛡 Security Notes
-
-✔ .env is excluded via .gitignore
-✔ JWT tokens stored in localStorage
-✔ Passwords hashed with bcrypt
-✔ Email verification required for login
-
-🚀 Future Enhancements
-
-Export accepted candidates as CSV
-
-Full resume viewer
-
-Recruiter notes per candidate
-
-Cloud resume parsing (OCR)
-
-Improved ML scoring model
+Frontend runs at 👉 http://localhost:5173
