@@ -19,8 +19,6 @@ MatchMyResume is a modern, full-stack resume analysis and ranking system designe
 
 - **Candidates** → upload resume + JD → get score, insights, and improvement tips  
 - **Employers** → upload up to 50 resumes → batch screening → automatic ranking  
-- **ML Scoring** → cosine similarity, keyword match stats, and XGBoost ensemble  
-- **Auth System** → secure JWT login/signup, with email verification (Resend)
 
 
 ## ✨ Key Features
@@ -33,7 +31,7 @@ MatchMyResume is a modern, full-stack resume analysis and ranking system designe
 - Clean analytics UI  
 
 ### 🏢 Employer Portal
-- Upload 1–50 resumes  
+- Upload upto 50 resumes  
 - Batch scoring + ranking  
 - Accept/Reject tagging  
 - Auto-reject threshold  
@@ -42,8 +40,6 @@ MatchMyResume is a modern, full-stack resume analysis and ranking system designe
 ### 🔐 Authentication
 - Full JWT-based login/signup  
 - Email verification via **Resend**  
-- Protected routes  
-- Dynamic navbar (Login → Profile)
 
 ### 🧠 Machine Learning
 - Preprocessing pipeline (TF-IDF, embeddings)  
@@ -69,33 +65,6 @@ MatchMyResume is a modern, full-stack resume analysis and ranking system designe
 - Resend email API
 - XGBoost resume scoring model
 
-
-## 📂 Project Structure
-
-/Backend
-│── app/
-│ ├── routers/
-│ ├── models.py
-│ ├── schemas.py
-│ ├── database.py
-│ ├── mailer.py
-│ ├── utils/
-│ └── main.py
-│── requirements.txt
-│── .env (ignored)
-
-/Frontend
-│── src/
-│ ├── components/
-│ ├── pages/
-│ ├── lib/api.js
-│ ├── AppRouter.jsx
-│ ├── App.jsx
-│ └── index.css
-│── public/
-│── package.json
-│── vite.config.js
-│── .env (ignored)
 
 
 
